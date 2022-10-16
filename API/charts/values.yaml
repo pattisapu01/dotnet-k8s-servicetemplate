@@ -1,0 +1,29 @@
+minReplicas: 1
+maxReplicas: 2
+image:
+  pullPolicy: Always
+  pullSecret: acrkey
+service:
+  name: $ext_safeprojectnamelowercase$-service
+  port: 80
+  targetPort: 80
+repository:
+  image: workspacename.azurecr.io/$ext_safeprojectnamelowercase$-service-$username$:latest
+  annotation: $ext_safeprojectnamelowercase$
+## set to true when running on k8 cluster locally
+## this overrides the provisioning of storage
+islocal: false
+
+podLabels:
+  app: "$ext_safeprojectnamelowercase$-service"
+  app.kubernetes.io/name: "$ext_safeprojectnamelowercase$-service"
+  owner: "ownername"
+resources:
+  requests:
+    cpu: 25m
+    memory: 64Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+disableSwagger: "false"
+namespace: "default"

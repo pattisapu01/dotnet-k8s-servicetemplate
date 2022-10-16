@@ -1,0 +1,32 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name> Microservices Event Template for service '$ext_safeprojectname$'</Name>
+    <Description> Event template for micro-services in C#</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName> Microservices $ext_safeprojectname$ Event Template</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LanguageTag>C#</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <PlatformTag>Linux</PlatformTag>
+    <ProjectTypeTag>Library</ProjectTypeTag>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>   
+    <Hidden>true</Hidden> 
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Cloud.$ext_safeprojectname$.Events.csproj" File="Cloud.$ext_safeprojectname$.Events.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="IntegrationEvent.cs">IntegrationEvent.cs</ProjectItem>
+      <Folder Name="Integration" TargetFolderName="Integration">
+          <ProjectItem ReplaceParameters="true" TargetFileName="AmountChangedIntegrationEvent.cs">AmountChangedIntegrationEvent.cs</ProjectItem>		  
+		  <ProjectItem ReplaceParameters="true" TargetFileName="QuantityChangedIntegrationEvent.cs">QuantityChangedIntegrationEvent.cs</ProjectItem>
+      </Folder>
+	  <Folder Name="Domain" TargetFolderName="Domain"/>      
+    </Project>
+  </TemplateContent>
+</VSTemplate>

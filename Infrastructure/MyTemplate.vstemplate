@@ -1,0 +1,55 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name> Cloud Service Infrastructure Template</Name>
+    <Description> Infrastructure template for micro-services in C#</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName> Cloud Service Infrastructure Template</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LanguageTag>C#</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <PlatformTag>Linux</PlatformTag>
+    <ProjectTypeTag>Library</ProjectTypeTag>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>    
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Cloud.$ext_safeprojectname$.Infrastructure.csproj" File="Cloud.$ext_safeprojectname$.Infrastructure.csproj" ReplaceParameters="true">
+      <Folder Name="DataContexts" TargetFolderName="DataContexts">
+        <ProjectItem ReplaceParameters="true" TargetFileName="$ext_safeprojectname$DataContext.cs">$ext_safeprojectname$DataContext.cs</ProjectItem>
+      </Folder>
+      <Folder Name="EntityConfigurations" TargetFolderName="EntityConfigurations">
+        <ProjectItem ReplaceParameters="true" TargetFileName="$ext_safeprojectname$Configuration.cs">$ext_safeprojectname$Configuration.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Repos" TargetFolderName="Repos">
+        <ProjectItem ReplaceParameters="true" TargetFileName="$ext_safeprojectname$Repo.cs">$ext_safeprojectname$Repo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="I$ext_safeprojectname$Repo.cs">I$ext_safeprojectname$Repo.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Base" TargetFolderName="Base">
+        <ProjectItem ReplaceParameters="true" TargetFileName="BaseAttributeValidator.cs">BaseAttributeValidator.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="BaseDTO.cs">BaseDTO.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="BaseRepo.cs">BaseRepo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="BaseTransactionBehavior.cs">BaseTransactionBehavior.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="BaseController.cs">BaseController.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Extensions" TargetFolderName="Extensions">
+        <ProjectItem ReplaceParameters="true" TargetFileName="TypeExtensions.cs">TypeExtensions.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="EFExtensions.cs">EFExtensions.cs</ProjectItem>
+		<ProjectItem ReplaceParameters="true" TargetFileName="DapperExtensions.cs">DapperExtensions.cs</ProjectItem>
+      </Folder>
+		<Folder Name="DB" TargetFolderName="DB">
+			<ProjectItem ReplaceParameters="true" TargetFileName="EFDapperCommand.cs">EFDapperCommand.cs</ProjectItem>			
+		</Folder>
+		<Folder Name="Behaviors" TargetFolderName="Behaviors">
+			<ProjectItem ReplaceParameters="true" TargetFileName="LoggingBehavior.cs">LoggingBehavior.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="ValidationBehavior.cs">ValidationBehavior.cs</ProjectItem>
+		</Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

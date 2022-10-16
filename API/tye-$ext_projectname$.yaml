@@ -1,0 +1,31 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: $safeprojectname$service
+services:
+- name: db-store
+  image: postgres:13.4
+  env:
+   - name: POSTGRES_USER
+     value: $ext_safeprojectnamelowercase$
+   - name: POSTGRES_PASSWORD
+     value: Password123!
+   - name: POSTGRES_DB
+     value: $ext_safeprojectnamelowercase$
+  bindings:
+   - port: 5438
+     containerPort: 5432
+     connectionString: Server=${host};Port=${port};User Id=${env:POSTGRES_USER};Password=${env:POSTGRES_PASSWORD};Database=${env:POSTGRES_DB};
+  volumes:
+   - name: postgres-storage
+     source: C:\Users\$username$\source\repos\runtime\postgres\$ext_projectname$\.data\
+     target: /var/lib/postgresql/data   
+- name: $ext_safeprojectnamelowercase$-api
+  project: ..\Cloud.$ext_safeprojectname$.API\Cloud.$ext_safeprojectname$.API.csproj
+  replicas: 1
+  env:
+   - name: ASPNETCORE_ENVIRONMENT
+     value: Development

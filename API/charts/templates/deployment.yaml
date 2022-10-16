@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.service.name }}
+  labels:
+    app: {{ .Values.service.name }}
+    app.kubernetes.io/name: "{{ .Values.service.name }}"
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.service.name }}
+  replicas: {{ .Values.minReplicas }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0  
+  template:
+    metadata:
+      labels:
+        {{- range $key, $val := .Values.podLabels }}
+        {{ $key }}: {{ $val | quote }}
+        {{- end }}
+    spec:
+      containers:
+      - name: {{ .Values.service.name }}
+        image: "{{ .Values.repository.image }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        resources:
+          requests:
+            cpu: {{ .Values.resources.requests.cpu }}
+            memory: {{ .Values.resources.requests.memory }}
+          limits:
+            cpu: {{ .Values.resources.limits.cpu }}
+            memory: {{ .Values.resources.limits.memory }}
+        ports:
+        - containerPort: {{ .Values.service.port }}
+          name: http
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 90
+          failureThreshold: 3
+       {{- if .Values.islocal }}
+        env:
+          - name: $ext_safeprojectnamelowercase$-db-connection
+            value: username=$ext_safeprojectnamelowercase$;password=Password123!;database=$ext_safeprojectnamelowercase$;host=postgresql-local;port=5432;sslmode=Disable;
+       {{- end }}
+        ports:
+        - containerPort: 81
+      imagePullSecrets:
+          - name: {{ .Values.image.pullSecret }}

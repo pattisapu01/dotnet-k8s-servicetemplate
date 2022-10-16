@@ -1,0 +1,40 @@
+ <VSTemplate Version="3.0.0" Type="ProjectGroup"
+    xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+    <TemplateData>
+        <Name> Cloud MicroService (Multi Project) .Net 6 Template</Name>
+        <Description>A multi project template for creating a microservices in C# on s Cloud Platform with API, Domain, Events and Infrastructure projects</Description>
+        <Icon>Image.ico</Icon>
+        <ProjectType>CSharp</ProjectType>
+    </TemplateData>
+    <TemplateContent>
+        <ProjectCollection>
+			<SolutionFolder Name="buildassets">
+			</SolutionFolder>
+			<SolutionFolder Name="charts">
+				<SolutionFolder Name="$safeprojectname$-service">
+					<SolutionFolder Name="templates">
+					</SolutionFolder>
+				</SolutionFolder>
+			</SolutionFolder>
+			<SolutionFolder Name="migrations">
+				<SolutionFolder Name="sql">
+					
+				</SolutionFolder>
+			</SolutionFolder>
+            <ProjectTemplateLink ProjectName="Cloud.$safeprojectname$.API" CopyParameters="true">
+                API\MyTemplate.vstemplate
+            </ProjectTemplateLink>
+            <ProjectTemplateLink ProjectName="Cloud.$safeprojectname$.Infrastructure" CopyParameters="true">
+                Infrastructure\MyTemplate.vstemplate
+            </ProjectTemplateLink>
+            <ProjectTemplateLink ProjectName="Cloud.$safeprojectname$.Domain" CopyParameters="true">
+                Domain\MyTemplate.vstemplate
+            </ProjectTemplateLink>
+			<ProjectTemplateLink ProjectName="Cloud.$safeprojectname$.Events" CopyParameters="true">
+				Events\MyTemplate.vstemplate
+			</ProjectTemplateLink>
+
+			
+        </ProjectCollection>
+    </TemplateContent>
+</VSTemplate>

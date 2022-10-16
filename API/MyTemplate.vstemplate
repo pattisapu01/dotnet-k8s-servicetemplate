@@ -1,0 +1,89 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Cloud.$ext_safeprojectname$.API</Name>
+    <Description> API template for micro-services in C#</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Cloud.API</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LanguageTag>C#</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <PlatformTag>Linux</PlatformTag>
+    <ProjectTypeTag>Web</ProjectTypeTag>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>  
+    <Hidden>true</Hidden>  
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Cloud.$ext_safeprojectname$.API.csproj" File="Cloud.$ext_safeprojectname$.API.csproj" ReplaceParameters="true">
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+      </Folder>
+      <Folder Name="Application" TargetFolderName="Application">
+		<Folder Name="DomainEvents" TargetFolderName="DomainEvents" />
+        <Folder Name="Behaviors" TargetFolderName="Behaviors">
+ 	        <ProjectItem ReplaceParameters="true" TargetFileName="$ext_safeprojectname$TransactionBehavior.cs">$ext_safeprojectname$TransactionBehavior.cs</ProjectItem>	
+        </Folder>
+        <Folder Name="Commands" TargetFolderName="Commands">
+          <ProjectItem ReplaceParameters="true" TargetFileName="Create$ext_safeprojectname$Command.cs">Create$ext_safeprojectname$Command.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Create$ext_safeprojectname$CommandHandler.cs">Create$ext_safeprojectname$CommandHandler.cs</ProjectItem>
+		  <ProjectItem ReplaceParameters="true" TargetFileName="Update$ext_safeprojectname$Command.cs">Update$ext_safeprojectname$Command.cs</ProjectItem>
+		  <ProjectItem ReplaceParameters="true" TargetFileName="Update$ext_safeprojectname$CommandHandler.cs">Update$ext_safeprojectname$CommandHandler.cs</ProjectItem>
+        </Folder>
+        <Folder Name="DomainEventHandlers" TargetFolderName="DomainEventHandlers" />
+        <Folder Name="DTO" TargetFolderName="DTO">
+          <ProjectItem ReplaceParameters="true" TargetFileName="$ext_safeprojectname$.cs">$ext_safeprojectname$.cs</ProjectItem>
+        </Folder>
+        <Folder Name="Validations" TargetFolderName="Validations">
+          <ProjectItem ReplaceParameters="true" TargetFileName="$ext_safeprojectname$CommandValidators.cs">$ext_safeprojectname$CommandValidators.cs</ProjectItem>
+		  <ProjectItem ReplaceParameters="true" TargetFileName="$ext_safeprojectname$ValidatorRules.cs">$ext_safeprojectname$ValidatorRules.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Controllers" TargetFolderName="Controllers">
+        <ProjectItem ReplaceParameters="true" TargetFileName="$ext_safeprojectname$Controller.cs">$ext_safeprojectname$Controller.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Infrastructure" TargetFolderName="Infrastructure">
+        <Folder Name="AutofacModules" TargetFolderName="AutofacModules">
+          <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationModule.cs">ApplicationModule.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MediatorModule.cs">MediatorModule.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Migrations" TargetFolderName="Migrations">
+        <ProjectItem ReplaceParameters="true" TargetFileName="V1__$ext_safeprojectname$_Create.sql">V1__$ext_safeprojectname$_Create.sql</ProjectItem>
+      </Folder>	  
+	  <Folder Name="Charts" TargetFolderName="Charts">
+        <Folder Name="Templates" TargetFolderName="Templates">
+          <ProjectItem ReplaceParameters="true" TargetFileName="deployment.yaml">deployment.yaml</ProjectItem>	                	      
+	      <ProjectItem ReplaceParameters="true" TargetFileName="service.yaml">service.yaml</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="false" TargetFileName=".helmignore">.helmignore</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Chart.yaml">Chart.yaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="values.yaml">values.yaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="values_dev.yaml">values_dev.yaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="values_local.yaml">values_local.yaml</ProjectItem>
+        
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="appsettings.json">appsettings.json</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="appsettings.Development.json">appsettings.Development.json</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>        
+	  <ProjectItem ReplaceParameters="true" TargetFileName="ServiceConfiguration.cs">ServiceConfiguration.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationConfiguration.cs">ApplicationConfiguration.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="true" TargetFileName="StartupExtensions.cs">StartupExtensions.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="tye-$ext_projectname$.yaml">tye-$ext_projectname$.yaml</ProjectItem>
+	  <ProjectItem ReplaceParameters="false" TargetFileName=".gitignore">.gitignore</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Dockerfile">Dockerfile</ProjectItem>
+    </Project>
+  </TemplateContent>
+ <WizardExtension>
+    <Assembly>DotnetOnK8s, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1f71180593fbcc12</Assembly>	        
+    <FullClassName>DotnetOnK8s.ProjectExtensionWizard</FullClassName>
+</WizardExtension>
+  <WizardData>
+    <Message></Message>
+  </WizardData>
+</VSTemplate>

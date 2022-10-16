@@ -1,0 +1,55 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name> Microservices Domain Template</Name>
+    <Description> Domain template for micro-services in C#</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName> Microservices Domain Template</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LanguageTag>C#</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <PlatformTag>Linux</PlatformTag>
+    <ProjectTypeTag>Library</ProjectTypeTag>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>  
+    <Hidden>true</Hidden>  
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Cloud.$ext_safeprojectname$.Domain.csproj" File="Cloud.$ext_safeprojectname$.Domain.csproj" ReplaceParameters="true">
+      <Folder Name="Aggregates" TargetFolderName="Aggregates">
+        <Folder Name="$ext_safeprojectname$" TargetFolderName="$ext_safeprojectname$">
+          <ProjectItem ReplaceParameters="true" TargetFileName="$ext_safeprojectname$.cs">$ext_safeprojectname$.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Helpers" TargetFolderName="Helpers">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ConnectionBuilder.cs">ConnectionBuilder.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="SecretReader.cs">SecretReader.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="BaseDBContext.cs">BaseDBContext.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="DBProjections.cs">DBProjections.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Interfaces" TargetFolderName="Interfaces">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ISecretReader.cs">ISecretReader.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IUnitOfWork.cs">IUnitOfWork.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IAggregateRoot.cs">IAggregateRoot.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IConnectionBuilder.cs">IConnectionBuilder.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IRepository.cs">IRepository.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Exceptions" TargetFolderName="Exceptions">
+        <ProjectItem ReplaceParameters="true" TargetFileName="DomainException.cs">DomainException.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Kernel" TargetFolderName="Kernel">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Entity.cs">Entity.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="EntityPropertyBag.cs">EntityPropertyBag.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Logging" TargetFolderName="Logging">
+        <ProjectItem ReplaceParameters="true" TargetFileName="EventTypeEnricher.cs">EventTypeEnricher.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="LogConfigurator.cs">LogConfigurator.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
