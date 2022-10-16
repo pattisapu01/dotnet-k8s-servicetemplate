@@ -1,6 +1,5 @@
 # dotnet-k8s-servicetemplate
 Repo for dotnet based microservice templates with multiple projects
-# C# Sample Code for the Authorize.Net SDK
 
 This repository contains a multi project template sample that demonstrates a micro-service in C#. 
 It also has the required assets for deploying to kubernetes and 1 click run-debug loop with "Project Tye"
